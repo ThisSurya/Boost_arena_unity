@@ -1,0 +1,56 @@
+{
+  "format": 1,
+  "restore": {
+    "e:\\Ngoding\\Game Unity\\Boost Arena\\Assembly-CSharp.csproj": {}
+  },
+  "projects": {
+    "e:\\Ngoding\\Game Unity\\Boost Arena\\Assembly-CSharp.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "e:\\Ngoding\\Game Unity\\Boost Arena\\Assembly-CSharp.csproj",
+        "projectName": "Assembly-CSharp",
+        "projectPath": "e:\\Ngoding\\Game Unity\\Boost Arena\\Assembly-CSharp.csproj",
+        "packagesPath": "C:\\Users\\surya\\.nuget\\packages\\",
+        "outputPath": "e:\\Ngoding\\Game Unity\\Boost Arena\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\surya\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
