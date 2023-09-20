@@ -6,6 +6,12 @@ public class Movement : MonoBehaviour
 {
     [SerializeField] float Thrustspeed;
     [SerializeField] float Rotatespeed;
+
+    [SerializeField] AudioClip rocketEngine;
+    [SerializeField] ParticleSystem leftThrust;
+    [SerializeField] ParticleSystem rightThrust;
+    [SerializeField] ParticleSystem mainThrust;
+
     Rigidbody rb;
     AudioSource audioSource;
     // Start is called before the first frame update
@@ -27,29 +33,74 @@ public class Movement : MonoBehaviour
     {
         if(Input.GetKey(KeyCode.Space))
         {
-            rb.AddRelativeForce(Vector3.up * Thrustspeed * Time.deltaTime);
-            if(!audioSource.isPlaying)
-            {
-                audioSource.Play();
-            }
+            StartThrust();
         }
         else
         {
-            audioSource.Stop();
+            StopThrust();
         }
+    }
+
+
+    private void StartThrust()
+    {
+        rb.AddRelativeForce(Vector3.up * Thrustspeed * Time.deltaTime);
+        if (!audioSource.isPlaying)
+        {
+            audioSource.PlayOneShot(rocketEngine);
+        }
+        if (!mainThrust.isPlaying)
+        {
+            mainThrust.Play();
+        }
+    }
+
+    private void StopThrust()
+    {
+        audioSource.Stop();
+        mainThrust.Stop();
     }
 
     void ProcessRotate()
     {
         if(Input.GetKey(KeyCode.A))
         {
-            ApplyRotation(-Rotatespeed);
+            StartLeftThrust();
         }
 
-        if(Input.GetKey(KeyCode.D))
+        else if(Input.GetKey(KeyCode.D))
         {
-            ApplyRotation(Rotatespeed);
+            StartRightThrust();
         }
+        else
+        {
+            StopLeftRightThrust();
+        }
+    }
+
+
+    private void StartLeftThrust()
+    {
+        ApplyRotation(-Rotatespeed);
+        if (!leftThrust.isPlaying)
+        {
+            leftThrust.Play();
+        }
+    }
+
+    private void StartRightThrust()
+    {
+        ApplyRotation(Rotatespeed);
+        if (!rightThrust.isPlaying)
+        {
+            rightThrust.Play();
+        }
+    }
+
+    private void StopLeftRightThrust()
+    {
+        leftThrust.Stop();
+        rightThrust.Stop();
     }
 
     void ApplyRotation(float Rotatespeed)
