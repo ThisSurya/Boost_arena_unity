@@ -12,6 +12,7 @@ public class CollisionHandler : MonoBehaviour
     [SerializeField] ParticleSystem finishVFX;
     [SerializeField] ParticleSystem crashVFX;
     bool isTransitioning = false;
+    bool isColiison = false;
 
     AudioSource audioSource;
 
@@ -19,8 +20,25 @@ public class CollisionHandler : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
     }
+
+    private void Update() {
+        RespondDebugKey();
+    }
+
+    void RespondDebugKey()
+    {
+        if(Input.GetKeyDown(KeyCode.L))
+        {
+            NextLevel();
+        }
+        else if(Input.GetKeyDown(KeyCode.C))
+        {
+            isColiison = true;
+        }
+    }
+
     private void OnCollisionEnter(Collision other) {
-        if(isTransitioning) { return; }
+        if(isTransitioning || isColiison) { return; }
 
         switch(other.gameObject.tag) 
         {
