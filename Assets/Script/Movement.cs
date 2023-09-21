@@ -25,7 +25,9 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Main move to go up
         ProcessThrust();
+        // Rotating the rocket
         ProcessRotate();
     }
 
@@ -33,6 +35,7 @@ public class Movement : MonoBehaviour
     {
         if(Input.GetKey(KeyCode.Space))
         {
+            // Give force
             StartThrust();
         }
         else
@@ -65,11 +68,13 @@ public class Movement : MonoBehaviour
     {
         if(Input.GetKey(KeyCode.A))
         {
+            // Rotating to the left
             StartLeftThrust();
         }
 
         else if(Input.GetKey(KeyCode.D))
         {
+            // Rotating to the right
             StartRightThrust();
         }
         else
@@ -105,6 +110,7 @@ public class Movement : MonoBehaviour
 
     void ApplyRotation(float Rotatespeed)
     {
+        // freeze the rotation from external factor
         rb.freezeRotation = true;
         transform.Rotate(Vector3.forward * Rotatespeed * Time.deltaTime);
         rb.freezeRotation = false;

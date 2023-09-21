@@ -55,6 +55,8 @@
   <ItemGroup>
     <Compile Include="Assets\Script\Movement.cs" />
     <Compile Include="Assets\Script\CollisionHandler.cs" />
+    <Compile Include="Assets\Script\Oscilator.cs" />
+    <Compile Include="Assets\Script\QuitApplication.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
